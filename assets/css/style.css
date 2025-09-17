@@ -14,18 +14,17 @@ html {
   min-height: 100vh;
 }
 
-
 .container {
   display: flex;
   align-items: center;
 }
 
-
+/* Navigation */
 .nav-link {
   font-family: 'Roboto', sans-serif;
-  color: #4bff63; /* Set the link color */
+  color: #4bff63;
   font-size: 24px;
-  transition: transform 0.3s, color 0.3s; /* Add transitions for smooth effect */
+  transition: transform 0.3s, color 0.3s;
 }
 
 .nav-link:hover {
@@ -33,163 +32,298 @@ html {
   color: #32db47; 
 }
 
-
-
-
-
-.socials img:hover{
-  transition: filter 0.3s; 
-  filter: brightness(70%); 
-
-}
-
-h2{
-  
-  font-size: 24px;
-}
-
-
-.content {
-  text-align: left;
+/* Buttons */
+.buttonResume {
+  display: inline-block;
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
   color: white;
-  margin-left: 30px;
-  margin-top: 200px;
-  padding: 0 20px; 
-
-
-}
-.content h1{
-  font-size: 60px;
- 
-}
-
-.content p.description{
-  max-width: 500px;
+  background-color: #4bff63;
+  padding: 14px 30px;
+  border: 2px solid #4bff63;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.3s ease-in-out;
+  position: relative;
+  overflow: hidden;
+  margin-top: 25px;
+  box-shadow: 0 0 8px rgba(75, 255, 99, 0.6);
 }
 
-@media (max-width: 576px) {
-  .content {
-    text-align: left;
-  }
-  
-  .content h1 {
-    font-size: 30px; /* Adjust the value as per your preference */
-  }
-  
-  .content p.description {
-    font-size: 18px; /* Adjust the value as per your preference */
-    
-  }
+.buttonResume::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: #32db47;
+  z-index: -1;
+  transition: left 0.3s ease-in-out;
 }
 
-
-  .highlight {
-    position: relative;
-    display: inline-block;
-    transition: color 0.3s;
- 
-  }
-  
-  .highlight::after {
-    content: "";
-    position: absolute;
-    bottom: -2px;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background-color: rgb(97, 233, 115); 
-    transform: scaleX(0);
-    transition: transform 0.3s;
-    transform-origin: left;
-  }
-  
-  
-  .highlight:hover::after {
-    transform: scaleX(1);
-  }
-
-  .socials img{
-    width: 35px;
-    height: 35px;
-    margin-right: 8px;
-  }
-  .skills {
-    max-width: 1200px;
-    margin: 50px auto;
-    padding: 20px;
-    border-radius: 5px;
+.buttonResume:hover::before {
+  left: 0;
 }
 
-
-
-
-.skillContainer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.profile-picture {
-    width: 60%;
-    max-width: 300px;
-    border-radius: 10px;
-}
-
-.skillButtons {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    font-family: 'Press Start 2P', cursive; 
-    font-size: 11px;
-
+.buttonResume:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 14px rgba(75, 255, 99, 0.9);
+  color: white;
 }
 
 button {
-    color: white;
-    background-color: rgb(68, 185, 84);
-    margin: 3px;
-    padding: 8px 16px;
-    border: none;
-    cursor: default;
-    
+  color: white;
+  background-color: rgb(68, 185, 84);
+  margin: 3px;
+  padding: 8px 16px;
+  border: none;
+  cursor: default;
 }
-.buttons{
+
+.buttons {
   font-family: 'Press Start 2P', cursive; 
   font-size: 11px;
 }
 
-/* Media Queries */
-@media screen and (min-width: 768px) {
-    .skillContainer {
-        flex-direction: row;
-    }
-
-    .profile-picture {
-        margin-right: 20px;
-    }
+.button-container {
+  display: inline-block;
+  position: relative;
 }
 
-@media screen and (max-width: 767px) {
-    .skillContainer {
-        align-items: center;
-    }
-
-    .profile-picture {
-        width: 100%;
-        margin-bottom: 20px;
-    }
-    h2{
-      text-align: center;
-    }
+button.slide-hover {
+  background-color: #4bff63;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s;
 }
 
-.projects{
+button.slide-hover::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background-color: #32db47;
+  z-index: -1;
+  transition: left 0.3s;
+}
+
+button.slide-hover:hover {
+  transform: translateX(10%);
+  color: white;
+}
+
+button.slide-hover:hover::before {
+  left: 0;
+}
+
+/* Typography */
+h2 {
+  font-size: 24px;
+}
+
+h4 {
+  font-family: 'Roboto', sans-serif;
+}
+
+
+.heading-style {
+  font-family: 'Roboto', sans-serif;
+  font-size: 48px;
+  color: rgb(0, 0, 0);
+  letter-spacing: 2px;
+  border: 2px solid #4bff63;
+  padding: 10px 20px;
+  display: inline-block;
+}
+
+.heading-style:hover {
+  border-color: #32db47;
+}
+
+/* Home Page Content */
+.content {
+  text-align: left;
+  color: white;
+  margin: 250px auto 0 auto;
+  padding: 0 20px; 
+  max-width: 1200px;
+}
+
+.content h1 {
+  font-size: 60px;
+}
+
+.content p.description {
+  max-width: 500px;
+}
+
+.highlight {
+  position: relative;
+  display: inline-block;
+  transition: color 0.3s;
+}
+
+.highlight::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: rgb(97, 233, 115); 
+  transform: scaleX(0);
+  transition: transform 0.3s;
+  transform-origin: left;
+}
+
+.highlight:hover::after {
+  transform: scaleX(1);
+}
+
+/* Social Media */
+.socials img {
+  width: 35px;
+  height: 35px;
+  margin-right: 8px;
+}
+
+.socials img:hover {
+  transition: filter 0.3s; 
+  filter: brightness(70%); 
+}
+
+/* Skills Section */
+.skills {
   max-width: 1200px;
   margin: 50px auto;
   padding: 20px;
   border-radius: 5px;
-
 }
+
+.skillContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 30px;
+}
+
+.skills-content {
+  flex: 1;
+}
+
+.profile-picture {
+  width: 300px;
+  max-width: 300px;
+  border-radius: 10px;
+  flex-shrink: 0;
+}
+
+.skillButtons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  font-family: 'Press Start 2P', cursive; 
+  font-size: 11px;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+
+
+/* Projects Section */
+.projects {
+  max-width: 1200px;
+  margin: 50px auto;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.project-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 50px;
+}
+
+.project-info {
+  flex: 1;
+  max-width: 600px;
+}
+
+.project-info h4 {
+  margin-bottom: 10px;
+}
+
+.project-info button {
+  margin-right: 10px;
+}
+
+.project-image {
+  flex: 1;
+  max-width: 600px;
+}
+
+.project-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+/* About Page */
+.heading-style-about {
+  font-family: 'Roboto', sans-serif;
+  font-size: 48px;
+  color: rgb(255, 255, 255);
+  letter-spacing: 2px;
+  display: inline-block;
+}
+
+.about-content {
+  max-width: 1200px;
+  margin: 50px auto;
+  padding: 20px;
+  color: white;
+}
+
+.about-container {
+  max-width: 800px;
+  margin: 0 auto;
+  color: white;
+}
+
+.about-section {
+  margin-bottom: 40px;
+  color: white;
+}
+
+.about-section h2 {
+  color: #4bff63;
+  font-size: 20px;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+}
+
+.about-section p {
+  line-height: 1.8;
+  font-size: 16px;
+  margin-bottom: 20px;
+  color: white;
+}
+
+.cv-link {
+  text-align: lef;
+  font-size: 18px;
+  margin-bottom: 30px;
+}
+
+/* Footer */
 footer {
   background-color: #090924;
   color: white;
@@ -208,7 +342,7 @@ footer {
 .footer-copyright {
   flex: 1;
   text-align: left;
-  margin-bottom: 10px; /* Add some spacing between elements */
+  margin-bottom: 10px;
 }
 
 .footer-nav {
@@ -261,172 +395,113 @@ footer {
   width: 35px;
   height: 35px;
   margin: 0 4px; 
-}
-
-
-@media screen and (max-width: 768px) {
-  .footer-container {
-      flex-direction: column;
-      align-items: flex-start;
-  }
-
-  .footer-copyright,
-  .footer-nav,
-  .footer-socials {
-      width: 100%;
-      text-align: center;
-  }
-
-  .footer-nav ul {
-      flex-direction: column;
-      justify-content: center;
-  }
-
-  .footer-nav li {
-      margin-right: 0;
-      margin-bottom: 10px; 
-  }
-
-  .footer-socials img {
-      margin: 0 8px; 
-  }
-}
-.footer-socials img {
-  width: 35px;
-  height: 35px;
-  margin: 0 4px;
   transition: filter 0.3s; 
 }
-
 
 .footer-socials img:hover {
   filter: brightness(70%); 
 }
 
-
-
-/* View project button */
-.button-container {
-  display: inline-block;
-  position: relative;
+/* Mobile Responsiveness */
+@media (max-width: 576px) {
+  .content {
+    text-align: left;
+    margin: 100px auto 0 auto;
+  }
   
-}
-
-
-button.slide-hover {
-  background-color: #4bff63;
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  cursor: pointer;
-  position: relative;
-  overflow: hidden;
-  transition: transform 0.3s;
-}
-
-
-button.slide-hover::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background-color: #32db47;
-  z-index: -1;
-  transition: left 0.3s;
-}
-
-
-button.slide-hover:hover {
-  transform: translateX(10%);
-  color: #26af38; 
-  color: white;
-}
-
-
-button.slide-hover:hover::before {
-  left: 0;
-}
-
-h4{
-  font-family: 'Roboto', sans-serif;
-}
-
-
-
-/* Custom font for the heading */
-.heading-style {
-  font-family: 'Roboto', sans-serif;
-  font-size: 48px;
-  color: #0c0c0c; /* Set the text color */
-  letter-spacing: 2px; /* Add some letter spacing for a stylish look */
-  border: 2px solid #4bff63; /* Add a border around the text */
-  padding: 10px 20px; /* Add some padding to create space between text and border */
-  display: inline-block; /* Display as inline block to adjust width to content */
-  background-image: url("path/to/your/background-pattern.png"); /* Add your own background pattern */
-  background-size: cover; /* Cover the entire background with the pattern */
-  background-clip: text; /* Clip the background to the text */
-  -webkit-background-clip: text; /* For Safari compatibility */
-}
-
-/* On hover, change the border color */
-.heading-style:hover {
-  border-color: #090924; /* Change the border color on hover */
+  .content h1 {
+    font-size: 30px;
+  }
+  
+  .content p.description {
+    font-size: 18px;
+  }
 }
 
 @media screen and (max-width: 768px) {
   .heading-style {
-      font-size: 30px;
+    font-size: 30px;
   }
-}
 
+  .skillContainer {
+    flex-direction: column;
+    align-items: center;
+  }
 
-/* PROJECTS */
+  .profile-picture {
+    width: 100%;
+    max-width: 300px;
+    margin-bottom: 20px;
+  }
 
-.project-container {
-  display: flex;
-  align-items: center; /* Center vertically */
-  justify-content: space-between; /* Align items to the left and right edges */
-  margin-bottom: 50px;
-}
+  .job-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 
-.project-info {
-  flex: 1; /* Take remaining space */
-  max-width: 600px; /* Limit the maximum width */
-}
+  h2 {
+    text-align: center;
+  }
 
-.project-info h4 {
-  margin-bottom: 10px;
-}
-
-.project-info button {
-  margin-right: 10px;
-}
-
-.project-image {
-  flex: 1; /* Take remaining space */
-  max-width: 600px; /* Limit the maximum width */
-}
-
-.project-image img {
-  width: 100%;
-  height: auto;
-  border-radius: 10px;
-}
-
-@media (max-width: 768px) {
   .project-container {
-    flex-direction: column; /* Stack the content vertically on small screens */
+    flex-direction: column;
   }
 
   .project-info,
   .project-image {
-    max-width: 100%; /* Full width on small screens */
+    max-width: 100%;
   }
 
   .button-container {
-    text-align: center; /* Center the buttons on small screens */
+    text-align: center;
+  }
+
+  .about-content {
+    margin: 30px auto;
+    padding: 15px;
+  }
+
+  .about-section h2 {
+    font-size: 24px;
+  }
+
+  .about-section p {
+    font-size: 15px;
+  }
+
+  .footer-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .footer-copyright,
+  .footer-nav,
+  .footer-socials {
+    width: 100%;
+    text-align: center;
+  }
+
+  .footer-nav ul {
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .footer-nav li {
+    margin-right: 0;
+    margin-bottom: 10px; 
+  }
+
+  .footer-socials img {
+    margin: 0 8px; 
   }
 }
-  
+
+@media screen and (min-width: 768px) {
+  .skillContainer {
+    flex-direction: row;
+  }
+
+  .profile-picture {
+    margin-right: 20px;
+  }
+}

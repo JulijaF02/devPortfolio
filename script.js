@@ -1,5 +1,4 @@
 $(document).ready(function() {
-  // Initialize question statistics
   var questionStats = {
     q1: {
       count: 0,
