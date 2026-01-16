@@ -11,6 +11,14 @@ export default function Home() {
   const [isVisible, setIsVisible] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
   const [isGameActive, setIsGameActive] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.matchMedia("(pointer: coarse)").matches);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   // Mouse HUD Tracker & Trail
   useEffect(() => {
@@ -79,7 +87,7 @@ export default function Home() {
     <div className={`group/spotlight relative bg-slate-950 min-h-screen text-slate-300 font-mono overflow-x-hidden ${isGameActive ? '' : 'cursor-none'}`}>
 
       {/* SLEEK HUD PRECISION DOT CURSOR */}
-      {!isGameActive && (
+      {!isGameActive && !isMobile && (
         <>
           <div
             className={`pointer-events-none fixed z-[20000] flex items-center justify-center ${isVisible ? 'opacity-100' : 'opacity-0'}`}
@@ -112,9 +120,9 @@ export default function Home() {
       <div className="mx-auto max-w-screen-2xl px-6 font-sans md:px-12 lg:px-24">
         <div className="lg:flex lg:justify-between lg:gap-12">
 
-          {/* LEFT COLUMN: FIXED */}
-          <header className={`pt-20 lg:fixed lg:top-0 lg:flex lg:h-screen lg:w-[42%] lg:flex-col lg:justify-between lg:py-32 overflow-hidden pr-8 transition-all duration-700 ${isGameActive ? 'blur-2xl scale-90 opacity-0 pointer-events-none' : 'blur-0 scale-100 opacity-100'}`}>
-            <div className="relative border-2 border-teal-500/20 bg-slate-900/40 p-8 md:p-10 rounded-lg shadow-[0_0_40px_rgba(45,212,191,0.05)] overflow-hidden max-w-xl">
+          {/* LEFT COLUMN: SCALABLE & FIXED */}
+          <header className={`pt-12 lg:pt-0 lg:fixed lg:top-0 lg:flex lg:h-screen lg:w-[42%] lg:flex-col lg:justify-center lg:py-12 lg:pr-20 transition-all duration-700 ${isGameActive ? 'blur-2xl scale-90 opacity-0 pointer-events-none' : 'blur-0 scale-100 opacity-100'}`}>
+            <div className="relative mx-auto lg:mx-0 w-full max-w-sm sm:max-w-md border-2 border-teal-500/20 bg-slate-900/40 p-5 md:p-8 rounded-lg shadow-[0_0_40px_rgba(45,212,191,0.05)] overflow-hidden">
               {/* Corner Brackets */}
               <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-teal-400/40"></div>
               <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-teal-400/40"></div>
@@ -122,7 +130,7 @@ export default function Home() {
               <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-teal-400/40"></div>
 
               <div className="relative z-10">
-                <div className="mb-8 relative w-24 h-24 sm:w-32 sm:h-32 group/avatar">
+                <div className="mb-6 relative w-20 h-20 sm:w-24 sm:h-24 group/avatar">
                   <div className="absolute inset-0 border border-teal-500/30 bg-slate-950 p-1.5">
                     <div className="relative w-full h-full overflow-hidden bg-slate-900 shadow-[inset_0_0_20px_rgba(45,212,191,0.2)]">
                       <img
@@ -137,7 +145,7 @@ export default function Home() {
                   <div className="absolute -bottom-1.5 -left-1.5 w-4 h-4 border-b-2 border-l-2 border-teal-400 shadow-[0_0_10px_rgba(45,212,191,0.5)]"></div>
                 </div>
 
-                <h1 className="text-5xl font-bold tracking-tighter text-white sm:text-6xl uppercase italic">
+                <h1 className="text-4xl font-bold tracking-tighter text-white sm:text-5xl uppercase italic leading-none">
                   <a href="/">Julija Filipović</a>
                 </h1>
                 <div className="mt-4 flex items-center gap-4">
@@ -147,16 +155,16 @@ export default function Home() {
                   </h2>
                 </div>
 
-                <p className="mt-6 text-slate-400 text-sm leading-relaxed max-w-sm lowercase font-mono">
+                <p className="mt-4 text-slate-400 text-xs leading-relaxed max-w-sm lowercase font-mono">
                   [status: building interactive worlds] <br />
                   [hobby: cat enthusiast & plant guardian]
                 </p>
 
-                <div className="mt-8 grid grid-cols-3 gap-2 max-w-sm font-mono">
+                <div className="mt-6 grid grid-cols-3 gap-2 max-w-sm font-mono">
                   {["C#", "Next.js", "HTML", "CSS", "Git", "PostgreSQL"].map((skill) => (
                     <div
                       key={skill}
-                      className="relative border border-teal-500/30 bg-teal-500/5 px-2 py-3 text-center text-[10px] font-bold uppercase tracking-widest text-teal-400 hover:bg-teal-500/20 hover:text-white transition-all group/skill cursor-default"
+                      className="relative border border-teal-500/30 bg-teal-500/5 px-2 py-2 text-center text-[9px] font-bold uppercase tracking-widest text-teal-400 hover:bg-teal-500/20 hover:text-white transition-all group/skill cursor-default"
                     >
                       {skill}
                       <span className="absolute top-0 right-0 w-1 h-1 bg-teal-400/50"></span>
@@ -166,9 +174,9 @@ export default function Home() {
                 </div>
 
                 <nav className="nav hidden lg:block" aria-label="In-page jump links">
-                  <ul className="mt-16 w-max font-mono">
+                  <ul className="mt-10 w-max font-mono">
                     {["About", "Experience", "Projects"].map((item) => (
-                      <li key={item} className="mb-4">
+                      <li key={item} className="mb-3">
                         <a
                           className={`group flex items-center py-2 px-4 transition-all relative ${activeSection === item.toLowerCase()
                             ? "text-teal-300"
@@ -190,7 +198,7 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="mt-12 flex gap-6 px-4">
+            <div className="mt-8 flex gap-6 px-4 justify-center lg:justify-start">
               <a href="https://github.com/JulijaF02" target="_blank" className="text-slate-500 hover:text-teal-300 transition-colors">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" className="h-6 w-6"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
               </a>
@@ -200,7 +208,7 @@ export default function Home() {
             </div>
           </header>
 
-          <main className={`pt-24 lg:ml-[42%] lg:w-[58%] lg:py-32 lg:pl-16 transition-all duration-700 ${isGameActive ? 'blur-2xl scale-90 opacity-0 pointer-events-none' : 'blur-0 scale-100 opacity-100'}`}>
+          <main className={`pt-24 lg:ml-[42%] lg:w-[58%] lg:py-32 lg:pl-24 transition-all duration-700 ${isGameActive ? 'blur-2xl scale-90 opacity-0 pointer-events-none' : 'blur-0 scale-100 opacity-100'}`}>
             <section id="about" className="mb-16 scroll-mt-16 md:mb-24 lg:mb-32 lg:scroll-mt-24 group">
               <div className="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-slate-950/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0 text-sm font-bold uppercase tracking-widest text-teal-300 flex items-center gap-2 italic font-mono">
                 <span className="w-4 h-[1px] bg-teal-500"></span>
@@ -315,6 +323,11 @@ export default function Home() {
 function AimTrainer({ onGameToggle }) {
   const mountRef = useRef(null);
   const [gameState, setGameState] = useState('idle');
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    setIsMobile(window.matchMedia("(pointer: coarse)").matches);
+  }, []);
   const [sensitivity, setSensitivity] = useState(0.002);
   const [gameStarted, setGameStarted] = useState(false);
   const [stats, setStats] = useState({ hits: 0, headshots: 0, misses: 0, time: 30, streak: 0, maxStreak: 0 });
@@ -434,14 +447,20 @@ function AimTrainer({ onGameToggle }) {
       gameRef.current.targets.push(group);
     };
 
-    const handleShoot = () => {
-      if (document.pointerLockElement !== mountRef.current) return;
-
-      // Recoil / Shake
-      gameRef.current.shake = 0.04;
+    const handleShoot = (e) => {
+      // Allow shooting on mobile without pointer lock
+      if (!isMobile && document.pointerLockElement !== mountRef.current) return;
 
       const raycaster = new THREE.Raycaster();
-      raycaster.setFromCamera(new THREE.Vector2(0, 0), camera);
+      if (isMobile && e.type === 'touchstart') {
+        const touch = e.touches[0];
+        const rect = renderer.domElement.getBoundingClientRect();
+        const x = ((touch.clientX - rect.left) / rect.width) * 2 - 1;
+        const y = -((touch.clientY - rect.top) / rect.height) * 2 + 1;
+        raycaster.setFromCamera(new THREE.Vector2(x, y), camera);
+      } else {
+        raycaster.setFromCamera(new THREE.Vector2(0, 0), camera);
+      }
 
       // Bullet Tracer
       const tracerPoints = [
@@ -541,9 +560,14 @@ function AimTrainer({ onGameToggle }) {
     };
 
     document.addEventListener('pointerlockchange', handlePointerLockChange);
+    document.addEventListener('pointerlockchange', handlePointerLockChange);
     window.addEventListener('keydown', handleKeyDown);
-    window.addEventListener('mousemove', handleMouseMove);
-    window.addEventListener('mousedown', handleShoot);
+    if (isMobile) {
+      window.addEventListener('touchstart', handleShoot, { passive: false });
+    } else {
+      window.addEventListener('mousemove', handleMouseMove);
+      window.addEventListener('mousedown', handleShoot);
+    }
 
     const animate = () => {
       if (gameState !== 'playing') return;
@@ -644,7 +668,7 @@ function AimTrainer({ onGameToggle }) {
 
     // Give browser more time to handle previous unlock sequence
     setTimeout(() => {
-      if (mountRef.current) {
+      if (mountRef.current && !isMobile) {
         mountRef.current.requestPointerLock();
       }
       // Keep guard active for a bit longer to prevent spam
