@@ -54,7 +54,7 @@ export default function Home() {
   // Active Section Scroll Spy
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ["about", "experience", "projects", "labs"];
+      const sections = ["about", "experience", "projects"];
       for (const section of sections) {
         const element = document.getElementById(section);
         if (element) {
@@ -167,7 +167,7 @@ export default function Home() {
 
                 <nav className="nav hidden lg:block" aria-label="In-page jump links">
                   <ul className="mt-16 w-max font-mono">
-                    {["About", "Experience", "Projects", "Labs"].map((item) => (
+                    {["About", "Experience", "Projects"].map((item) => (
                       <li key={item} className="mb-4">
                         <a
                           className={`group flex items-center py-2 px-4 transition-all relative ${activeSection === item.toLowerCase()
