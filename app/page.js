@@ -121,7 +121,7 @@ export default function Home() {
         <div className="lg:flex lg:justify-between lg:gap-12">
 
           {/* LEFT COLUMN: SCALABLE & FIXED */}
-          <header className={`pt-12 lg:pt-0 lg:fixed lg:top-0 lg:flex lg:h-screen lg:w-[42%] lg:flex-col lg:justify-center lg:py-12 lg:pr-20 transition-all duration-700 ${isGameActive ? 'blur-2xl scale-90 opacity-0 pointer-events-none' : 'blur-0 scale-100 opacity-100'}`}>
+          <header className={`pt-12 lg:pt-32 lg:fixed lg:top-0 lg:flex lg:h-screen lg:w-[42%] lg:flex-col lg:justify-start lg:pr-20 transition-all duration-700 ${isGameActive ? 'blur-2xl scale-90 opacity-0 pointer-events-none' : 'blur-0 scale-100 opacity-100'}`}>
             <div className="relative mx-auto lg:mx-0 w-full max-w-sm sm:max-w-md border-2 border-teal-500/20 bg-slate-900/40 p-5 md:p-8 rounded-lg shadow-[0_0_40px_rgba(45,212,191,0.05)] overflow-hidden">
               {/* Corner Brackets */}
               <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-teal-400/40"></div>
