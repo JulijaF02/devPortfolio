@@ -35,3 +35,11 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #2dd4bf;
 }
+
+/* Hide Next.js / Vercel Dev Overlays & Error Buttons */
+#nextjs-portal,
+[data-nextjs-dialog-overlay],
+.nextjs-toast-errors-parent,
+vercel-live-feedback {
+  display: none !important;
+}
