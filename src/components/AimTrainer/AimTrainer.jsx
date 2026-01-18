@@ -75,7 +75,7 @@ const AimTrainer = ({ onGameToggle }) => {
                             {/* EXIT BUTTON */}
                             <button
                                 onClick={() => { setGameState('idle'); onGameToggle(false); }}
-                                className="absolute top-8 left-8 z-[111] px-6 py-3 bg-rose-600/20 border border-rose-500/40 text-rose-500 text-[10px] font-black uppercase tracking-widest hover:bg-rose-600 hover:text-white transition-all backdrop-blur-md"
+                                className="absolute top-4 left-4 z-[111] px-6 py-3 bg-rose-600/20 border border-rose-500/40 text-rose-500 text-[10px] font-black uppercase tracking-widest hover:bg-rose-600 hover:text-white transition-all backdrop-blur-md"
                             >
                                 EXIT
                             </button>

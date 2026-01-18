@@ -7,6 +7,9 @@ const spaceMono = Space_Mono({ subsets: ["latin"], weight: ["400", "700"], varia
 export const metadata = {
   title: "Julija Filipović | Game Developer",
   description: "Portfolio of Julija Filipović",
+  icons: {
+    icon: "/favicon.png",
+  },
 };
 
 export default function RootLayout({ children }) {

@@ -29,10 +29,6 @@ const Projects = () => {
                     <div key={proj.id} className="border border-teal-500/20 bg-teal-500/5 p-6 rounded-lg relative overflow-hidden group/box hover:border-teal-500/40 transition-all">
                         <div className="absolute top-0 right-0 p-2 text-[8px] text-teal-500/30 uppercase font-black">id: {proj.id}</div>
                         <div className="relative z-10 sm:flex gap-6">
-                            <div className="relative w-24 h-24 shrink-0 border border-teal-500/30 overflow-hidden bg-slate-900 group-hover/box:border-teal-400 transition-colors">
-                                <div className="absolute inset-0 bg-gradient-to-br from-green-500/20 to-teal-500/20 opacity-40"></div>
-                                <div className="absolute inset-0 flex items-center justify-center opacity-40 uppercase text-[10px] font-black">[preview]</div>
-                            </div>
                             <div className="font-sans">
                                 <h3 className="font-black text-white uppercase italic text-xl tracking-tighter">
                                     {proj.href ? (
