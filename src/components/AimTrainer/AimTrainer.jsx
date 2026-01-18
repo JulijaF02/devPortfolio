@@ -60,7 +60,7 @@ const AimTrainer = ({ onGameToggle }) => {
                     {gameState === 'playing' && (
                         <>
                             {/* HUD */}
-                            <div className="absolute top-8 left-1/2 -translate-x-1/2 z-[110] flex gap-12 text-white font-black uppercase text-xl tracking-widest bg-slate-950/60 backdrop-blur-md px-12 py-4 rounded-full border border-teal-500/30">
+                            <div className="absolute top-8 left-1/2 -translate-x-1/2 z-[110] flex gap-6 sm:gap-12 text-white font-black uppercase text-sm sm:text-xl tracking-widest bg-slate-950/60 backdrop-blur-md px-6 sm:px-12 py-3 sm:py-4 rounded-full border border-teal-500/30">
                                 <div className="flex flex-col items-center"><span className="text-[10px] text-teal-400">Time</span><span>{stats.time.toFixed(1)}s</span></div>
                                 <div className="flex flex-col items-center">
                                     <span className="text-[10px] text-teal-400 font-bold uppercase">Streak</span>
@@ -72,10 +72,20 @@ const AimTrainer = ({ onGameToggle }) => {
                                 <div className="flex flex-col items-center"><span className="text-[10px] text-rose-500 font-bold uppercase">HS</span><span>{stats.headshots}</span></div>
                             </div>
 
+                            {/* EXIT BUTTON */}
+                            <button
+                                onClick={() => { setGameState('idle'); onGameToggle(false); }}
+                                className="absolute top-8 left-8 z-[111] px-6 py-3 bg-rose-600/20 border border-rose-500/40 text-rose-500 text-[10px] font-black uppercase tracking-widest hover:bg-rose-600 hover:text-white transition-all backdrop-blur-md"
+                            >
+                                EXIT
+                            </button>
+
                             {/* CROSSHAIR - NUCLEAR OPTION */}
-                            <div className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none z-[99999]">
-                                <div className="w-1.5 h-1.5 bg-teal-400 rounded-full shadow-[0_0_10px_#2dd4bf,0_0_20px_white]"></div>
-                            </div>
+                            {!isMobile && (
+                                <div className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none z-[99999]">
+                                    <div className="w-1.5 h-1.5 bg-teal-400 rounded-full shadow-[0_0_10px_#2dd4bf,0_0_20px_white]"></div>
+                                </div>
+                            )}
 
                             {/* LOBBY INSTRUCTIONS */}
                             {stats.time >= 30 && (

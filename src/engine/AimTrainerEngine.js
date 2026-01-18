@@ -42,6 +42,7 @@ class AimTrainerEngine {
     }
 
     createCrosshair() {
+        if (this.isMobile) return;
         const material = new THREE.MeshBasicMaterial({ color: 0x2dd4bf, opacity: 0.8, transparent: true, depthTest: false });
         const bar1 = new THREE.Mesh(new THREE.PlaneGeometry(0.015, 0.002), material);
         const bar2 = new THREE.Mesh(new THREE.PlaneGeometry(0.015, 0.002), material);
@@ -149,13 +150,22 @@ class AimTrainerEngine {
     handleShoot(e) {
         if (!this.isMobile && document.pointerLockElement !== this.container) return;
 
-        // Recoil
-        this.camera.position.y += 0.02;
-        this.camera.rotation.x += 0.002;
-        setTimeout(() => { this.camera.position.y -= 0.02; this.camera.rotation.x -= 0.002; }, 50);
+        // Recoil effect only on desktop
+        if (!this.isMobile) {
+            this.camera.position.y += 0.02;
+            this.camera.rotation.x += 0.002;
+            setTimeout(() => { if (this.camera) { this.camera.position.y -= 0.02; this.camera.rotation.x -= 0.002; } }, 50);
+        }
 
         const raycaster = new THREE.Raycaster();
-        raycaster.setFromCamera(new THREE.Vector2(0, 0), this.camera);
+        let mouse = new THREE.Vector2(0, 0);
+
+        if (this.isMobile && e.touches && e.touches[0]) {
+            mouse.x = (e.touches[0].clientX / window.innerWidth) * 2 - 1;
+            mouse.y = -(e.touches[0].clientY / window.innerHeight) * 2 + 1;
+        }
+
+        raycaster.setFromCamera(mouse, this.camera);
 
         // Weapon position (bottom right)
         const weaponPos = new THREE.Vector3(0.3, -0.3, -0.5).applyMatrix4(this.camera.matrixWorld);
