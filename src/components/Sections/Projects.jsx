@@ -51,6 +51,16 @@ const Projects = () => {
                     </div>
                 ))}
             </div>
+            <div className="mt-12">
+                <a
+                    href="https://github.com/JulijaF02?tab=repositories"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-block py-3 px-8 border border-teal-400/30 text-teal-300 font-bold uppercase text-[10px] tracking-[0.2em] hover:bg-teal-400 hover:text-slate-950 transition-all hover:scale-105 active:scale-95 shadow-[0_0_20px_rgba(45,212,191,0.1)]"
+                >
+                    View Full Project Archive
+                </a>
+            </div>
         </section>
     );
 };
