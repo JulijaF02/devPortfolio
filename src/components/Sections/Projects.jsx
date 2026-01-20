@@ -3,6 +3,13 @@ import React from 'react';
 const Projects = () => {
     const projects = [
         {
+            id: "speculo_00",
+            title: "Speculo [In Development]",
+            desc: "An Event-Sourced Personal Analytics Platform. Designed a cloud-native backend using Clean Architecture (.NET 9), implemented CQRS with MediatR for decoupled and testable request handling, and developed a custom Event Store using PostgreSQL (JSONB) to maintain immutable logs. Secured via JWT and orchestrated with Docker.",
+            tech: [".NET 9", "Clean Architecture", "CQRS", "PostgreSQL", "Docker", "JWT"],
+            href: "https://github.com/JulijaF02/Speculo"
+        },
+        {
             id: "findit_01",
             title: "Find it",
             desc: "A surveillance horror experience where players monitor security cameras to detect subtle environmental anomalies. Features a randomized event system with 4 distinct anomaly types (Move, Disappear, Color, Swap) and a high-stakes reporting mechanic.",

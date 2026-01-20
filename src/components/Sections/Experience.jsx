@@ -5,14 +5,14 @@ const Experience = () => {
         {
             date: "FEB 2025 — SEPT 2025",
             title: "Execution Coordinator @ Replai",
-            desc: "Coordinated development cycles and delivery across multiple projects, while building Unity editor tools and automation to improve iteration speed and team productivity.",
-            tech: ["Unity", "Editor Tooling", "Automation", "Workflow Optimization", "Coordination"]
+            desc: "Coordinated development cycles and delivery across multiple projects. Leveraged technical background to bridge the gap between production and engineering, ensuring architectural standards were met during rapid iteration.",
+            tech: ["Project Coordination", "Workflow Automation", "Technical Leadership", "Editor Tooling"]
         },
         {
             date: "FEB 2024 — FEB 2025",
             title: "Lead Unity Developer @ Replai",
-            desc: "Architected and shipped multiple production-ready interactive games, focusing on gameplay systems, performance optimization, and fast iteration. Built internal tooling and supported team scaling in a fast-paced startup environment.",
-            tech: ["Unity", "Gameplay Systems", "Core Architecture", "Performance", "Team Scaling"]
+            desc: "Architected and developed 3 production-ready systems in C#, applying SOLID principles and Design Patterns (Singleton, Factory, Observer) to optimize performance and code reuse. Engineered internal development tools and automation pipelines to eliminate repetitive tasks, reducing manual iteration time by 70%. Led pull request reviews and enforced coding standards to ensure a maintainable and high-quality codebase.",
+            tech: ["C#", ".NET", "Unity", "SOLID", "Architecture", "Automation"]
         },
         {
             date: "FEB 2023 — FEB 2024",

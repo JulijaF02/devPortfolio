@@ -104,15 +104,6 @@ export default function Home() {
             <Experience />
             <Projects />
 
-            <div className="mb-16 md:mb-24 lg:mb-32">
-              <div className="mb-6">
-                <p className="text-slate-400 leading-relaxed text-sm italic">
-                  Just a little something on the side. <br />
-                  A simple shooting range I built with <span className="text-teal-300/80">React</span> & <span className="text-teal-300/80">Three.js</span> to keep the aim sharp between games.
-                </p>
-              </div>
-              <AimTrainer onGameToggle={setIsGameActive} />
-            </div>
 
             <Footer />
           </main>
